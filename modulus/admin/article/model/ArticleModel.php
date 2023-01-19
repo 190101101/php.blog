@@ -188,30 +188,7 @@ class ArticleModel extends model
             $data['article_id'],
         ]) ?: $this->return->code(404)->return('not_found', 'article')->get()->referer();
 
-        #
-        if($data['category_id'] != $data['old_category_id'])
-        {
-            $old_category = $this->db->t1where('category', 'category_id=?', [
-                $data['old_category_id']
-            ]) ?: $this->return->code(404)->return('not_found', 'category')->get()->referer();
-
-            $this->db->update('category', [
-                'category_id' => $old_category->category_id,
-                'category_count' => $old_category->category_count -= 1,
-            ], ['id' => 'category_id']);
-
-            $new_category = $this->db->t1where('category', 'category_id=?', [
-                $data['category_id']
-            ]) ?: $this->return->code(404)->return('not_found', 'category')->get()->referer();
-
-            $this->db->update('category', [
-                'category_id' => $new_category->category_id,
-                'category_count' => $new_category->category_count += 1,
-            ], ['id' => 'category_id']);
-        }
-
         #if not found article
-        $data = except($data, ['old_category_id']);
         $data += ['article_updated' => date('Y-m-d H:i:s')];
         $update = $this->db->update('article', $data, ['id' => 'article_id']);
 
@@ -230,10 +207,6 @@ class ArticleModel extends model
     {
         $article = $this->db->t1where('article', 'article_id=?', [$id]) ?: 
             $this->return->code(404)->return('not_found')->json();
-
-        $this->db->delete('save', [
-            'article_id' => $article->article_id
-        ], ['id' => 'article_id']);
 
         $delete = $this->db->delete('article', [
             'article_id' => $article->article_id

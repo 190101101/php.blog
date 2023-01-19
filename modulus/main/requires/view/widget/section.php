@@ -11,16 +11,12 @@
     <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between" data-toggle="collapse" data-target="#<?php echo $section->section_slug; ?>">
             <span><?php echo $section->section_title; ?></span>
-            <span class="badge badge-warning"><?php echo $section->section_count; ?></span>
         </li>
         <div id="<?php echo seo($section->section_slug); ?>" class="collapse" aria-labelledby="headingone" data-parent="#category">
             <?php foreach($categories as $category): ?>
                 <?php if($category->section_id == $section->section_id): ?>
                     <li class="list-group-item d-flex justify-content-between">
-                        <a href="/articles/<?php echo $section->section_slug; ?>/<?php echo $category->category_slug; ?>/page/1"><?php echo $category->category_title; ?></a>
-                        <span class="badge badge-primary">
-                            <?php echo $category->category_count; ?>
-                        </span>
+                        <a href="/article/category/<?php echo $category->category_id; ?>/page/1"><?php echo $category->category_title; ?></a>
                     </li>
                 <?php endif; ?>
             <?php endforeach; ?>

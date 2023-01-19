@@ -129,7 +129,6 @@ class CategoryModel extends model
             'category_created',
             'category_id',
             'section_id',
-            'old_section_id',
         ];
 
         #array diff keys
@@ -172,28 +171,6 @@ class CategoryModel extends model
             $data['category_id'],
         ]) ?: $this->return->code(404)->return('already_have')->get()->referer();
 
-        if($data['section_id'] != $data['old_section_id'])
-        {
-            $old_section = $this->db->t1where('section', 'section_id=?', [
-                $data['old_section_id']
-            ]) ?: $this->return->code(404)->return('not_found', 'section')->get()->referer();
-
-            $this->db->update('section', [
-                'section_id' => $old_section->section_id,
-                'section_count' => $old_section->section_count -= 1,
-            ], ['id' => 'section_id']);
-
-            $new_section = $this->db->t1where('section', 'section_id=?', [
-                $data['section_id']
-            ]) ?: $this->return->code(404)->return('not_found', 'section')->get()->referer();
-
-            $this->db->update('section', [
-                'section_id' => $new_section->section_id,
-                'section_count' => $new_section->section_count += 1,
-            ], ['id' => 'section_id']);
-        }
-
-        $data = except($data, ['old_section_id']);
         $update = $this->db->update('category', $data, ['id' => 'category_id']);
 
         $update['status'] == TRUE ?:
@@ -215,18 +192,6 @@ class CategoryModel extends model
         $section = $this->db->t1where('section', 'section_id=?', [
             $category->section_id
         ]) ?: $this->return->code(404)->return('not_found')->json();
-
-        $this->db->update('section', [
-            'section_id' => $category->section_id, 
-            'section_count' => $section->section_count -= 1, 
-        ], ['id' => 'section_id']); 
-
-        $this->db->update('category', [
-            'category_id' => 1, 
-            'category_count' => 
-            $this->db->t1where('category', 'category_id=?', [1])->category_count +=
-            $this->db->t1count('article', 'category_id=?', [$category->category_id])->count
-        ], ['id' => 'category_id']); 
 
         $this->db->update('article', [
             'category_id' => $category->category_id, 
@@ -256,18 +221,6 @@ class CategoryModel extends model
             $category->section_id
         ]) ?: $this->return->code(404)->return('not_found')->get()->http($http1);
 
-        $this->db->update('section', [
-            'section_id' => $category->section_id, 
-            'section_count' => $section->section_count -= 1, 
-        ], ['id' => 'section_id']); 
-
-        $this->db->update('category', [
-            'category_id' => 1, 
-            'category_count' => 
-            $this->db->t1where('category', 'category_id=?', [1])->category_count +=
-            $this->db->t1count('article', 'category_id=?', [$category->category_id])->count
-        ], ['id' => 'category_id']); 
-
         $this->db->update('article', [
             'category_id' => $category->category_id, 
             'article.category_id' => 1, 
@@ -283,21 +236,6 @@ class CategoryModel extends model
         unset($id); unset($delete); unset($category);
 
         $this->return->code(200)->return('success')->get()->http($http1);
-    }
-
-    public function CategoryStatus($id)
-    {
-        $category = $this->db->t1where('category', 'category_id!=1 && category_id=?', [$id]) ?:
-            $this->return->code(404)->return('not_found')->json();
-
-        $update = $this->db->update('category', [
-            'category_id' => $category->category_id,
-            'category_status' => $category->category_status == 1 ? 0 : 1,
-        ], ['id' => 'category_id']);
-
-        $update['status'] == TRUE
-            ? $this->return->code(200)->return('success')->json()
-            : $this->return->code(200)->return('error')->json();
     }
 
     public function categorySearchEngine()

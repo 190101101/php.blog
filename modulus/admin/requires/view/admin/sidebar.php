@@ -40,10 +40,7 @@
                 </a>
                 <div class="collapse" id="collapsepages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="/panel/save/page/1">save</a>
-                        <a class="nav-link" href="/panel/user/page/1">user</a>
                         <a class="nav-link" href="/panel/guest/page/1">guest</a>
-                        <a class="nav-link" href="/panel/contact/page/1">contact</a>
                     </nav>
                 </div>
                 <div class="sb-sidenav-menu-heading">Addons</div>

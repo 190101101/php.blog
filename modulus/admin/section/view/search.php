@@ -16,7 +16,6 @@
                     <th>title</th>
                     <th>created</th>
                     <th>count</th>
-                    <th>status</th>
                     <th>show</th>
                     <th>update</th>
                     <th>delete</th>
@@ -28,7 +27,6 @@
                     <td>title</td>
                     <td>created</td>
                     <td>count</td>
-                    <td>status</td>
                     <td>show</td>
                     <td>update</td>
                     <td>delete</td>
@@ -45,15 +43,6 @@
                     </td>
                     <td><?php echo date_ymd($section->section_created); ?></td>
                     <td><?php echo $section->section_count; ?></td>
-                     <td>
-                        <label class="switch">
-                        <input type="checkbox" class="data-get" 
-                            <?php echo $section->section_id != 1 ?: 'disabled'; ?> 
-                            data-get="/panel/section/status/<?php echo $section->section_id; ?>" 
-                            <?php echo $section->section_status == 1 ? 'checked' : NULL; ?> > 
-                        <span class="slider round"></span>
-                        </label>
-                    </td>
                     <td><a class="btn btn-sm btn-success"
                         href="/panel/section/show/<?php echo $section->section_id; ?>">show</a></td>
                     <td><a class="btn btn-sm btn-warning"

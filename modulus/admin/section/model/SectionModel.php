@@ -158,18 +158,6 @@ class SectionModel extends model
             $section->section_id
         ]) ?: $this->return->code(404)->return('not_found')->json();
 
-        $this->db->update('section', [
-            'section_id' => $section->section_id, 
-            'section_count' => $section->section_count -= 1, 
-        ], ['id' => 'section_id']); 
-
-        $this->db->update('section', [
-            'section_id' => 1, 
-            'section_count' => 
-            $this->db->t1where('section', 'section_id=?', [1])->section_count +=
-            $this->db->t1count('category', 'section_id=?', [$section->section_id])->count
-        ], ['id' => 'section_id']); 
-
         $this->db->update('category', [
             'section_id' => $section->section_id, 
             'category.section_id' => 1, 
@@ -220,18 +208,6 @@ class SectionModel extends model
             $section->section_id
         ]) ?: $this->return->code(404)->return('not_found')->get()->http($http1);
 
-        $this->db->update('section', [
-            'section_id' => $section->section_id, 
-            'section_count' => $section->section_count -= 1, 
-        ], ['id' => 'section_id']); 
-
-        $this->db->update('section', [
-            'section_id' => 1, 
-            'section_count' => 
-            $this->db->t1where('section', 'section_id=?', [1])->section_count +=
-            $this->db->t1count('category', 'section_id=?', [$section->section_id])->count
-        ], ['id' => 'section_id']); 
-
         $this->db->update('category', [
             'section_id' => $section->section_id, 
             'category.section_id' => 1, 
@@ -247,21 +223,6 @@ class SectionModel extends model
         unset($id); unset($delete); unset($section);
         
         $this->return->code(200)->return('success')->get()->http($http1);
-    }
-
-    public function SectionStatus($id)
-    {
-        $section = $this->db->t1where('section', 'section_id!=1 && section_id=?', [$id]) ?:
-            $this->return->code(404)->return('not_found')->json();
-
-        $update = $this->db->update('section', [
-            'section_id' => $section->section_id,
-            'section_status' => $section->section_status == 1 ? 0 : 1,
-        ], ['id' => 'section_id']);
-
-        $update['status'] == TRUE
-            ? $this->return->code(200)->return('success')->json()
-            : $this->return->code(200)->return('error')->json();
     }
 
     public function sectionSearchEngine()
