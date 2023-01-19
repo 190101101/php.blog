@@ -1,0 +1,141 @@
+table.table-media {
+    width: 100%; 
+}
+table.table-media thead {
+  font-weight: bold;
+}
+
+table.table-media th {
+  background: none !important;
+  text-align: center;
+}
+
+table.table-media th img{
+  width: 15px;
+  max-width: 50px;
+}
+
+table.table-media td a img{
+    width: 15px;
+    height: 14px;
+}
+
+table.table-media td a img.big{
+    width: 50px;
+    height: 40px;
+}
+
+table.table-media td button img{
+    width: 15px;
+    height: 14px;
+}
+
+table.table-media td {
+  text-align: center;
+  padding: 5px 0px; 
+  background: none !important;
+  font-size: 14px;
+}
+
+table.table-media td img{
+  width: 50px;
+  height: 50px;
+}
+
+.th-look img,
+.th-update img,
+.th-delete img{
+  width: 15px;
+  height: 15px;
+}
+
+
+.table-media td a img{
+  width: 14px;
+  height: 14px;
+}
+
+
+.page_content .dataTables_length select {
+    background: none;
+}
+
+.page_content .dataTables_length select option {
+    background: #000 !important;
+}
+
+@media screen and (max-width: 969px) {
+    table.table-media td[aria-label='status']{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 969px) {
+    td[aria-label='status']
+    {
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 895px) {
+
+  table.table-media thead {
+    display: none;    
+  }
+  table.table-media tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: none;
+  }
+  table.table-media td {
+    display: block;
+    text-align: right;
+    padding: 10px;
+  }
+
+  table.table-media td:before {
+    content: attr(aria-label);
+    float: left;
+    font-weight: bold;
+  }
+}
+
+table.table-media.horizontal thead {
+  display: none;    
+}
+table.table-media.horizontal tr {
+  display: block;
+  margin-bottom: 1rem;
+  border: none;
+}
+table.table-media.horizontal td {
+  display: block;
+  text-align: right;
+}
+
+table.table-media.horizontal td:before {
+  content: attr(aria-label);
+  float: left;
+}
+
+table.table-media.horizontal td[aria-label='status']{
+    width: 100% !important;
+}
+
+table.table-media.horizontal.no-table td {
+  display: block;
+  text-align: left;
+  padding: 10px;
+}
+
+table.table-media td[aria-label='delete'],
+table.table-media td[aria-label='update']{
+    min-width: 43px !important;
+}
+
+table.table-media td[aria-label='#']{
+    min-width: 30px !important;
+}
+
