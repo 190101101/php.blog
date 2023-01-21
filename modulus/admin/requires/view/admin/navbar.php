@@ -25,9 +25,9 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <?php if(segment(2) == 'admin'): ?>
                 <li><a class="dropdown-item" href="/panel/user/update/<?php echo User::user_id(); ?>">profile update</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#!">Logout</a></li>
+                <?php endif; ?>
                 <?php if(segment(2) != 'admin' && segment(2) != 'user' && segment(2) != 'setting' ): ?>
                 <li><a class="dropdown-item" href="/panel/<?php echo segment(2); ?>/create">create</a></li>
                 <?php endif; ?>

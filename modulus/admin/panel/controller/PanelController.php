@@ -25,10 +25,7 @@ class PanelController extends controller
             'section' => $this->panel->SectionCount(),
             'category' => $this->panel->CategoryCount(),
             'article' => $this->panel->ArticleCount(),
-            'user' => $this->panel->UserCount(),
             'guest' => $this->panel->GuestCount(),
-            'rule' => $this->panel->FaqCount(),
-            'faq' => $this->panel->RuleCount(),
         ]);
     }
 }

@@ -163,7 +163,7 @@ class ArticleModel extends model
 
         error::valitron($v, $http1);
 
-        $data += ['article_slug' => seo($data['article_title'])];
+        $data += ['article_slug' => seo($data['article_title'])];        
 
         #
         !$this->db->t1where('article', 'article_slug = ? && article_id != ?', [

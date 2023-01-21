@@ -92,7 +92,7 @@ class CategoryModel extends model
 
         error::valitron($v, $http1);
 
-        $data += ['category_slug' => seo($data['category_title'])];
+        $data += ['category_slug' => seo(char_map($data['category_title']))];
 
         !$this->db->t1where('category', 'category_slug=?', [$data['category_slug']])
             ?: $this->return->code(404)->return('already_have')->get()->referer();
@@ -151,7 +151,7 @@ class CategoryModel extends model
 
         #if not found category
         $data += ['category_updated' => date('Y-m-d H:i:s')];
-        $data += ['category_slug' => seo($data['category_title'])];
+        $data += ['category_slug' => seo(char_map($data['category_title']))];
 
         #
         !$this->db->t1where('category', 'category_slug = ? && category_id != ?', [

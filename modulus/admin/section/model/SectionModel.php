@@ -71,7 +71,7 @@ class SectionModel extends model
         error::valitron($v, $http1);
 
         #if not found section
-        $data += ['section_slug' => seo($data['section_title'])];
+        $data += ['section_slug' => seo(char_map($data['section_title']))];
 
         !$this->db->t1where('section', 'section_slug=?', [$data['section_slug']])
             ?: $this->return->code(404)->return('already_have')->get()->referer();
@@ -124,7 +124,7 @@ class SectionModel extends model
 
         #if not found section
         $data += ['section_updated' => date('Y-m-d H:i:s')];
-        $data += ['section_slug' => seo($data['section_title'])];
+        $data += ['section_slug' => seo(char_map($data['section_title']))];
 
         #
         !$this->db->t1where('section', 'section_slug = ? && section_id != ?', [
