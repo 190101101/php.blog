@@ -16,7 +16,7 @@
         <h3 class="mt-4 mb-3">#<?php echo $article->article_title; ?></h3>
 
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 article_content">
                 <p class="lead"><?php echo $article->article_text; ?></p>
                 <hr>
 

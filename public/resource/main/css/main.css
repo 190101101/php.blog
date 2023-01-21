@@ -30,3 +30,7 @@ textarea{
 .hover-dark:hover{
   background: #18171C !important;
 }
+
+.article_content img, iframe{
+  width: 100% !important;
+}

@@ -18,6 +18,7 @@
                     <th>text</th>
                     <th>created</th>
                     <th>status</th>
+                    <th>key</th>
                     <th>show</th>
                     <th>update</th>
                     <th>delete</th>
@@ -30,6 +31,7 @@
                     <td>text</td>
                     <td>created</td>
                     <td>status</td>
+                    <td>key</td>
                     <td>show</td>
                     <td>update</td>
                     <td>delete</td>
@@ -47,7 +49,7 @@
                         </a>
                     </td>
                     <!-- esma-ul-husna -->
-                    <td aria-label="title"><?php echo substr($article->article_title, 0, 20); ?></td>
+                    <td aria-label="title"><?php echo substr(char_map($article->article_title), 0, 20); ?></td>
                     <td aria-label="category">
                         <a href="/panel/article/category/<?php echo $article->section_slug; ?>/<?php echo $article->category_slug; ?>/page/1"
                             title="#id: <?php echo $article->category_id; ?>">
@@ -61,6 +63,14 @@
                         <input type="checkbox" class="data-get" 
                             data-get="/panel/article/status/<?php echo $article->article_id; ?>" 
                             <?php echo $article->article_status == 1 ? 'checked' : NULL; ?> > 
+                        <span class="slider round"></span>
+                        </label>
+                    </td>
+                    <td aria-label="key">
+                        <label class="switch">
+                        <input type="checkbox" class="data-get" 
+                            data-get="/panel/article/key/<?php echo $article->article_id; ?>" 
+                            <?php echo $article->article_key == 1 ? 'checked' : NULL; ?> > 
                         <span class="slider round"></span>
                         </label>
                     </td>

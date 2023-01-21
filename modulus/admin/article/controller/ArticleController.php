@@ -85,6 +85,11 @@ class ArticleController extends controller
         $this->article->ArticleStatus($id);
     }
 
+    public function ArticleKey($id)
+    {
+        $this->article->ArticleKey($id);
+    }
+
     public function ArticleSearchEngine()
     {
         $this->article->ArticleSearchEngine();

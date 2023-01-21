@@ -4,7 +4,7 @@
 <?php breadcump();  ?>
 
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-8 article_content">
 
         <p class="lead"><?php echo $article->article_text; ?></p>
         <hr>

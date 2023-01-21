@@ -15,7 +15,7 @@ class ArticleModel extends model
 
     public function articleById($id)
     {
-        $article = $this->db->t1where('article', 'article.article_status=1 && article.article_id=?', [
+        $article = $this->db->t1where('article', 'article.article_status=1 && article.article_id=? && article.category_id != 1', [
             $id]) ?: $this->return->code(404)->return('not_found')->get()->http();
 
         if(!Article::review($article->article_id)){
@@ -28,11 +28,10 @@ class ArticleModel extends model
 
     public function ArticleSimilar()
     {
-        return $this->db->t1where('article', "article.article_status=1 
+        return $this->db->t1where('article', "article.article_status=1 && article.category_id != 1
             ORDER BY article.article_view ASC LIMIT 6", [
         ], 2);
     }
-
 
     #
     public function CategoryById($id)

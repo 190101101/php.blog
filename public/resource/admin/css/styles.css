@@ -487,6 +487,10 @@ progress {
   display: none !important;
 }
 
+.article_content img, iframe{
+  width: 100% !important;
+}
+
 .lead {
   font-size: 1.25rem;
   font-weight: 300;

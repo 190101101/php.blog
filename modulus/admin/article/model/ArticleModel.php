@@ -100,7 +100,7 @@ class ArticleModel extends model
         error::valitron($v, $http1);
 
         #if not found article
-        $data += ['article_slug' => seo($data['article_title'])];
+        $data += ['article_slug' => seo(char_map($data['article_title']))];
 
        !$this->db->t1where('article', 'article_slug=?', [$data['article_slug']])
             ?: $this->return->code(404)->return('already_have')->get()->referer();
@@ -163,7 +163,8 @@ class ArticleModel extends model
 
         error::valitron($v, $http1);
 
-        $data += ['article_slug' => seo($data['article_title'])];        
+        $data += ['article_slug' => seo(char_map($data['article_title']))];
+
         unset($data['article_draft']);
 
         #
@@ -193,7 +194,7 @@ class ArticleModel extends model
 
     public function ArticleDelete($id)
     {
-        $article = $this->db->t1where('article', 'article_id=?', [$id]) ?: 
+        $article = $this->db->t1where('article', 'article_id=? && article_key=0', [$id]) ?: 
             $this->return->code(404)->return('not_found')->json();
 
         $delete = $this->db->delete('article', [
@@ -212,12 +213,8 @@ class ArticleModel extends model
     {
         $http1 = 'panel/article/page/1';
         
-        $article = $this->db->t1where('article', 'article_id=?', [$id]) ?: 
+        $article = $this->db->t1where('article', 'article_id=? && article_key=0', [$id]) ?: 
             $this->return->code(404)->return('not_found')->get()->http($http1);
-
-        $this->db->delete('save', [
-            'article_id' => $article->article_id
-        ], ['id' => 'article_id']);
 
         $delete = $this->db->delete('article', [
             'article_id' => $article->article_id
@@ -239,6 +236,21 @@ class ArticleModel extends model
         $update = $this->db->update('article', [
             'article_id' => $article->article_id,
             'article_status' => $article->article_status == 1 ? 0 : 1,
+        ], ['id' => 'article_id']);
+
+        $update['status'] == TRUE
+            ? $this->return->code(200)->return('success')->json()
+            : $this->return->code(200)->return('error')->json();
+    }
+    
+    public function ArticleKey($article_id)
+    {
+        $article = $this->db->t1where('article', 'article_id=?', [$article_id]) ?:
+            $this->return->code(404)->return('not_found')->json();
+
+        $update = $this->db->update('article', [
+            'article_id' => $article->article_id,
+            'article_key' => $article->article_key == 1 ? 0 : 1,
         ], ['id' => 'article_id']);
 
         $update['status'] == TRUE

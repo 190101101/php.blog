@@ -7,7 +7,7 @@
     <?php if($data->page->count): ?>
     <?php foreach($data->category as $category): ?>
     <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <a href="/articles/<?php echo $category->section_slug; ?>/<?php echo $category->category_slug; ?>/page/1" class="card h-100">
+        <a href="/article/category/<?php echo $category->category_id; ?>/page/1" class="card h-100">
             <div class="card-body">
                 <h6 class="text-center">
                     #<?php echo $category->category_title; ?>

@@ -69,6 +69,10 @@
             <input name="article_id" type="hidden" value="<?php echo $article->article_id; ?>"  required readonly>
 
         </div>
-        <a class="btn btn-sm btn-warning mt-2" target="_blank" href="/article/id/<?php echo $article->article_id ?>">view</a>
+
+        <div class="d-flex justify-content-between">
+            <a class="btn btn-sm btn-warning mt-2" target="_blank" href="/article/id/<?php echo $article->article_id ?>">view</a>
+            <a class="btn btn-sm btn-danger mt-2" href="/panel/article/destroy/<?php echo $article->article_id ?>">delete</a>
+        </div>
     </div>
 </form>

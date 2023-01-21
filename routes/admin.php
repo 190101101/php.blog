@@ -52,6 +52,7 @@ app::post('/panel/article/update', '/article/ArticleUpdate', 'admin', ['Panel'])
 app::get('/panel/article/delete/([0-9]+)', '/article/ArticleDelete/([0-9]+)', 'admin', ['Panel']);
 app::get('/panel/article/destroy/([0-9]+)', '/article/ArticleDestroy/([0-9]+)', 'admin', ['Panel']);
 app::get('/panel/article/status/([0-9]+)', '/article/articleStatus/([0-9]+)', 'admin', ['Panel']);
+app::get('/panel/article/key/([0-9]+)', '/article/articleKey/([0-9]+)', 'admin', ['Panel']);
 app::get('/panel/article/user/([0-9]+)/page/([0-9]+)', '/article/articleByUser', 'admin', ['Panel']);
 app::get('/panel/article/search/key/(.*?)', '/article/ArticleSearchEngine', 'admin', ['Panel']);
 app::get('/panel/article/search/data/([0-9a-zA-Z-_]+)/([0-9a-zA-Z-_]+)/page/([0-9]+)', 

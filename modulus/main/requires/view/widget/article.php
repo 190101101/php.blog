@@ -4,9 +4,9 @@
         <a href="/article/id/<?php echo $article->article_id; ?>" class="card h-100">
             <div class="card-body" title=" #id: <?php echo $article->article_id; ?>">
                 <h6 class="text-center">
-                    #<?php echo substr($article->article_title, 0, 16); ?>
+                    #<?php echo $article->article_title; ?>
                 </h6>
-                <p class="card-text"><?php echo substr(remove_tags($article->article_text), 0, 100); ?>...</p>
+                <p class="card-text"><?php echo strip_tags(substr($article->article_text, 0, 100)); ?>...</p>
                 <small><?php echo date_ymd($article->article_created); ?></small>
                 <small>/ baxış: <?php echo $article->article_view; ?></small>
             </div>
