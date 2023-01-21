@@ -4,7 +4,6 @@ namespace modulus\admin\article\controller;
 use modulus\admin\article\model\ArticleModel;
 use core\controller;
 use pagination;
-use limit;
 
 class ArticleController extends controller
 {
@@ -55,11 +54,6 @@ class ArticleController extends controller
     public function ArticleCreate()
     {
         $this->article->ArticleCreate();
-    }
-
-    public function limit($limit)
-    {
-        $this->article->limit($limit);
     }
 
     public function update($id)

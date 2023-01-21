@@ -52,7 +52,6 @@ class CategoryModel extends model
             ], 2, 2);
     }
    
-
     #
     public function CategoryShow($id)
     {
@@ -102,19 +101,14 @@ class CategoryModel extends model
             $data['section_id']
         ]) ?: $this->return->code(404)->return('not_found', 'section')->get()->referer();
 
-        $update = $this->db->update('section', [
-            'section_id' => $section->section_id,
-            'section_count' => $section->section_count += 1
-        ], ['id' => 'section_id']);
-
         #if not found category
         $create = $this->db->create('category', $data);
 
-        $create['status'] == TRUE && $update['status'] == TRUE ?:
+        $create['status'] == TRUE ?:
             $this->return->code(404)->return('error')->get()->referer();
         
         old::delete($data);
-
+        
         #unset variables
         unset($http1); unset($data); unset($_POST); unset($v); unset($form);
 
@@ -126,7 +120,6 @@ class CategoryModel extends model
         $form = [
             'category_title',
             'category_text',
-            'category_created',
             'category_id',
             'section_id',
         ];
@@ -145,7 +138,6 @@ class CategoryModel extends model
 
         $v->rule('required', 'category_title');
         $v->rule('required', 'category_text');
-        $v->rule('required', 'category_created');
         $v->rule('required', 'category_id');
         $v->rule('required', 'section_id');
 

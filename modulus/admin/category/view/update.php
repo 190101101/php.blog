@@ -17,7 +17,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>created</label>
-                    <input name="category_created" class="form-control" type="text" value="<?php echo $category->category_created; ?>" required>
+                    <input class="form-control" type="text" value="<?php echo $category->category_created; ?>" required>
                 </div>
             </div>
 
@@ -53,7 +53,6 @@
                 </div>
             </div>
             <input name="category_id" type="hidden" value="<?php echo $category->category_id; ?>" required>
-            <input name="old_section_id" type="hidden" value="<?php echo $category->section_id; ?>" required>
         </div>
     </div>
 </form>

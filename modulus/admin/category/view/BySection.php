@@ -16,7 +16,6 @@
                     <th>title</th>
                     <th>section</th>
                     <th>created</th>
-                    <th>count</th>
                     <th>show</th>
                     <th>update</th>
                     <th>delete</th>
@@ -28,7 +27,6 @@
                     <td>title</td>
                     <td>section</td>
                     <td>created</td>
-                    <td>count</td>
                     <td>show</td>
                     <td>update</td>
                     <td>delete</td>
@@ -45,7 +43,6 @@
                     </td>
                     <td>#<?php echo $category->section_title; ?></td>
                     <td><?php echo date_ymd($category->category_created); ?></td>
-                    <td><?php echo $category->category_count; ?></td>
                     <td><a class="btn btn-sm btn-success"
                         href="/panel/category/show/<?php echo $category->category_id; ?>">show</a></td>
                     <td><a class="btn btn-sm btn-warning"

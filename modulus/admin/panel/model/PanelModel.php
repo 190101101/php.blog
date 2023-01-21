@@ -2,9 +2,20 @@
 
 namespace modulus\admin\panel\model;
 use core\model;
+use limit;
 
 class PanelModel extends model
 {
+    public function limit($limit)
+    {
+        $limits = [5, 10, 25, 50, 100];
+
+        in_array($limit, $limits) == TRUE ?: $this->return->referer();
+
+        limit::set($limit);
+        $this->return->referer();
+    }
+
 	public function UserCount()
 	{
 		return $this->db->t1count('user', 'user_id > 0', [])->count;
@@ -18,11 +29,6 @@ class PanelModel extends model
 	public function ArticleCount()
 	{
 		return $this->db->t1count('article', 'article_id > 0', [])->count;
-	}
-
-	public function ContactCount()
-	{
-		return $this->db->t1count('contact', 'contact_id > 0', [])->count;
 	}
 
 	public function RuleCount()

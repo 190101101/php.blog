@@ -15,7 +15,6 @@
                     <th>id</th>
                     <th>title</th>
                     <th>created</th>
-                    <th>count</th>
                     <th>show</th>
                     <th>update</th>
                     <th>delete</th>
@@ -26,7 +25,6 @@
                     <td>id</td>
                     <td>title</td>
                     <td>created</td>
-                    <td>count</td>
                     <td>show</td>
                     <td>update</td>
                     <td>delete</td>
@@ -42,7 +40,6 @@
                         </a>
                     </td>
                     <td><?php echo date_ymd($section->section_created); ?></td>
-                    <td><?php echo $section->section_count; ?></td>
                     <td><a class="btn btn-sm btn-success"
                         href="/panel/section/show/<?php echo $section->section_id; ?>">show</a></td>
                     <td><a class="btn btn-sm btn-warning"

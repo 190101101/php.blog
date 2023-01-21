@@ -150,9 +150,9 @@ function breadcump($url = null)
     }
     echo "<li class='breadcrumb-item active'>{$uri[$i]}</li>";
     echo '</div>';
-    echo '<div class="text-success d-flex">';
-    echo "online: ". Guest::online()->guest_count;
-    echo '</div>';
+    // echo '<div class="text-success d-flex">';
+    // echo "online: ". Guest::online()->guest_count;
+    // echo '</div>';
     echo '</ol>';
 }
 

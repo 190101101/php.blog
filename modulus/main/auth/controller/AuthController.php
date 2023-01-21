@@ -18,11 +18,6 @@ class AuthController extends controller
         $this->layout('main', 'main', 'auth', 'auth', []);
     }
 
-    public function SignUp()
-    {
-        $this->auth->SignUp();
-    }
-
     public function SignIn()
     {
         $this->auth->SignIn();   

@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-2">
                 <button class="btn btn-sm btn-success" type="submit">update</button>
-                <a class="btn btn-sm btn-success" href="/panel/user/page/1">back</a>
+                <a class="btn btn-sm btn-success" href="/panel/admin">back</a>
             </div>
         </div>
     </div>

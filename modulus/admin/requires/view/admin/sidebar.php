@@ -16,13 +16,12 @@
                 <div class="collapse" id="collapseother" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="/panel/setting/page/1">setting</a>
-                        <a class="nav-link" href="/panel/rule/page/1">rule</a>
-                        <a class="nav-link" href="/panel/faq/page/1">faq</a>
+                        <a class="nav-link" href="/panel/guest/page/1">guest</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    categories
+                    pages
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -33,17 +32,7 @@
                     </nav>
                 </div>
                 <!--  -->
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsepages" aria-expanded="false" aria-controls="collapsepages">
-                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    pages
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="collapsepages" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="/panel/guest/page/1">guest</a>
-                    </nav>
-                </div>
-                <div class="sb-sidenav-menu-heading">Addons</div>
+                <div class="sb-sidenav-menu-heading">addons</div>
                 <a class="nav-link" href="/">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Home

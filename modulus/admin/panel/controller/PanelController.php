@@ -13,6 +13,11 @@ class PanelController extends controller
         $this->panel = new PanelModel();
     }
 
+    public function limit($limit)
+    {
+        $this->panel->limit($limit);
+    }
+
     public function index()
     {
         $this->layout('panel', 'admin', 'panel', 'panel', [
@@ -22,7 +27,6 @@ class PanelController extends controller
             'article' => $this->panel->ArticleCount(),
             'user' => $this->panel->UserCount(),
             'guest' => $this->panel->GuestCount(),
-            'contact' => $this->panel->ContactCount(),
             'rule' => $this->panel->FaqCount(),
             'faq' => $this->panel->RuleCount(),
         ]);

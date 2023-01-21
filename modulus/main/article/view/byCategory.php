@@ -10,7 +10,7 @@
         </div>
 
         <ul class="pagination justify-content-center">
-            <?php pagination::selector($data->page, "articles/{$article->section_slug}/{$article->category_slug}/"); ?>
+            <?php pagination::selector($data->page, "article/category/{$article->category_id}/"); ?>
         </ul>
 
         <?php include(MW.'info.php'); ?>

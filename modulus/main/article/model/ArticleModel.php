@@ -4,9 +4,6 @@ namespace modulus\main\article\model;
 use core\model;
 use \library\error;
 use \Valitron\Validator as v;
-use old;
-use User;
-use Article;
 
 class ArticleModel extends model
 {
@@ -23,13 +20,13 @@ class ArticleModel extends model
     #
     public function CategoryById($id)
     {
-        return $this->db->t1where('category', "category_status=1 && category_id=?", [$id]);
+        return $this->db->t1where('category', "category_id!=1 && category_id=?", [$id]);
     }
 
     #
     public function CategoryBySlug($slug)
     {
-        return $this->db->t1where('category', "category_status=1 && category_slug=?", [$slug]);
+        return $this->db->t1where('category', "category_id!=1 && category_slug=?", [$slug]);
     }
 
     #
@@ -92,9 +89,9 @@ class ArticleModel extends model
 
     public function ArticleSimilar()
     {
-        return Array_chunk($this->db->t1where('article', "article.article_status=1 
+        return $this->db->t1where('article', "article.article_status=1 
             ORDER BY article.article_view ASC LIMIT 6", [
-        ], 2), 3);
+        ], 2);
     }
 
     public function ByCategoryCount($id)
