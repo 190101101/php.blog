@@ -7,7 +7,7 @@
                 <span>show</span>
             </div>
             <div class="col-md-2">
-                <a class="btn btn-sm btn-danger" href="/panel/article/destroy/<?php echo $article->article_id; ?>">delete</a>
+                <a class="btn btn-sm btn-warning" target="_blank" href="/article/id/<?php echo $article->article_id ?>">view</a>
                 <a class="btn btn-sm btn-success" href="/panel/article/page/1">back</a>
             </div>
         </div>
@@ -43,6 +43,8 @@
                 </div>
             </div>
         </div>
+
+        <a class="btn btn-sm btn-danger" href="/panel/article/destroy/<?php echo $article->article_id; ?>">delete</a>
     </div>
 </div>
 

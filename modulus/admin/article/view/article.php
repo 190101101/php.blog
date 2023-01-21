@@ -4,7 +4,7 @@
             <div>
                 <i class="fas fa-table me-1"></i>
                 <span>article</span>
-            </div>      
+            </div>
             <?php page_data($data->page); ?>
         </div>
     </div>
@@ -46,14 +46,15 @@
                             <?php echo $article->article_id; ?>        
                         </a>
                     </td>
+                    <!-- esma-ul-husna -->
                     <td aria-label="title"><?php echo substr($article->article_title, 0, 20); ?></td>
                     <td aria-label="category">
                         <a href="/panel/article/category/<?php echo $article->section_slug; ?>/<?php echo $article->category_slug; ?>/page/1"
                             title="#id: <?php echo $article->category_id; ?>">
-                            #<?php echo substr($article->category_title, 0, 10); ?>        
+                            #<?php echo substr(char_map(remove_tags($article->category_title)), 0, 10); ?>        
                         </a>
                     </td>
-                    <td aria-label="text"><?php echo substr($article->article_text, 0, 10); ?></td>
+                    <td aria-label="text"><?php echo substr(remove_tags($article->article_text), 0, 10); ?></td>
                     <td><?php echo date_ymd($article->article_created); ?></td>
                     <td aria-label="status">
                         <label class="switch">

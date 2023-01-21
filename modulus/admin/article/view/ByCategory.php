@@ -47,7 +47,7 @@
                         </a>
                     </td>
                     <td aria-label="title"><?php echo substr($article->article_title, 0, 20); ?></td>
-                    <td aria-label="category">#<?php echo substr($article->category_title, 0, 10); ?></td>
+                    <td aria-label="category">#<?php echo substr(char_map($article->category_title), 0, 10); ?></td>
                     <td aria-label="text"><?php echo substr($article->article_text, 0, 10); ?></td>
                     <td><?php echo date_ymd($article->article_created); ?></td>
                     <td aria-label="status">

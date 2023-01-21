@@ -4,6 +4,7 @@ namespace modulus\main\article\model;
 use core\model;
 use \library\error;
 use \Valitron\Validator as v;
+use Article;
 
 class ArticleModel extends model
 {
@@ -14,8 +15,24 @@ class ArticleModel extends model
 
     public function articleById($id)
     {
-        return $this->db->t1where('article', 'article.article_status=1 && article.article_id=?', [$id]) ?: $this->return->code(404)->return('not_found')->get()->http();
+        $article = $this->db->t1where('article', 'article.article_status=1 && article.article_id=?', [
+            $id]) ?: $this->return->code(404)->return('not_found')->get()->http();
+
+        if(!Article::review($article->article_id)){
+            $this->db->increment('article', 'article_view', $article->article_id);
+            Article::create($article->article_id);
+        }
+
+        return $article;
     }    
+
+    public function ArticleSimilar()
+    {
+        return $this->db->t1where('article', "article.article_status=1 
+            ORDER BY article.article_view ASC LIMIT 6", [
+        ], 2);
+    }
+
 
     #
     public function CategoryById($id)
@@ -85,13 +102,6 @@ class ArticleModel extends model
     {
         return $this->db->t1where('article', "article.article_status=1 && article_slug LIKE ? 
             ORDER BY article.article_id DESC LIMIT {$start}, {$limit}", ["%{$value}%"], 2, 2);
-    }
-
-    public function ArticleSimilar()
-    {
-        return $this->db->t1where('article', "article.article_status=1 
-            ORDER BY article.article_view ASC LIMIT 6", [
-        ], 2);
     }
 
     public function ByCategoryCount($id)

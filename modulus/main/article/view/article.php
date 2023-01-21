@@ -31,6 +31,16 @@
                     </a>
                 </span>
 
+                <?php if(User::admin()): ?>
+                <span>
+                    <a class="badge badge-success" 
+                        href="/panel/article/update/<?php echo $article->article_id; ?>">
+                        <span>show</span>
+                        <span><?php echo $article->article_id; ?></span>
+                    </a>
+                </span>
+                <?php endif; ?>
+
             </div>
 
             <div class="my-3">

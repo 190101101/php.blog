@@ -14,7 +14,7 @@
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label>id</label>
                     <input class="form-control" value="<?php echo $article->article_id; ?>"  required readonly>
@@ -24,7 +24,7 @@
                     <input name="article_title" class="form-control" type="text" value="<?php echo $article->article_title; ?>" required>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label>created</label>
                     <input type="text" class="form-control" value="<?php echo $article->article_created; ?>" required readonly>
@@ -34,17 +34,13 @@
                     <input type="text" class="form-control" value="<?php echo date('Y-m-d H:i:s'); ?>" required>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label>view</label>
-                    <input name="article_view" class="form-control" type="text" value="<?php echo $article->article_view; ?>" required>
-                </div>
 
-            </div>
             <div class="col-lg-12">
                 <label>article text</label>
                 <textarea name="article_text" rows="5" minlength="100" maxlength="30000" type="text" class="form-control" placeholder="article text" required id="editor1"><?php echo $article->article_text; ?></textarea>
-                <script>CKEDITOR.replace('editor1')</script>
+                <script>CKEDITOR.replace('editor1',{
+
+                })</script>
             </div>
 
             <div class="col-lg-12">
@@ -63,7 +59,16 @@
                 </div>
             </div>
 
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>view</label>
+                    <input name="article_view" class="form-control" type="text" value="<?php echo $article->article_view; ?>" required>
+                </div>
+            </div>
+
             <input name="article_id" type="hidden" value="<?php echo $article->article_id; ?>"  required readonly>
+
         </div>
+        <a class="btn btn-sm btn-warning mt-2" target="_blank" href="/article/id/<?php echo $article->article_id ?>">view</a>
     </div>
 </form>
