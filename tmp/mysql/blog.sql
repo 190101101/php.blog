@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 21 2023 г., 06:51
+-- Время создания: Янв 21 2023 г., 07:04
 -- Версия сервера: 10.4.27-MariaDB
 -- Версия PHP: 8.1.12
 
@@ -40,13 +40,6 @@ CREATE TABLE `article` (
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Дамп данных таблицы `article`
---
-
-INSERT INTO `article` (`article_id`, `article_title`, `article_slug`, `article_text`, `article_status`, `article_view`, `article_type`, `article_created`, `article_updated`, `category_id`) VALUES
-(22, 'article 01', 'article-01', '<h2><strong>Lorem ipsum dolor, sit amet.</strong></h2>\r\n\r\n<p><em>Lorem ipsum dolor sit amet consectetur adipisicing.</em></p>\r\n\r\n<p><s>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eligendi quo, provident magni labore ad, perspiciatis omnis non placeat saepe animi molestias molestiae perferendis error. Facilis id perspiciatis, incidunt iste!</s></p>\r\n\r\n<p><img alt=\"\" src=\"https://images.wallpaperscraft.com/image/single/lamp_paint_stains_lighting_118941_1280x720.jpg\" style=\"height:338px; width:600px\" /></p>\r\n\r\n<p><samp>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum neque accusamus iusto magnam, et suscipit voluptatem quis quae nemo cumque expedita culpa vel sequi tempore, tempora sapiente laboriosam dicta, deleniti.<br />\r\nAssumenda id culpa voluptatibus! Quas, similique eum a alias adipisci natus architecto voluptas id pariatur error modi vitae laboriosam laborum quidem at odio dolor quasi delectus earum temporibus. Eos, odio.<br />\r\nLabore culpa expedita, officia earum illum mollitia delectus aliquid doloremque eos eum fuga iusto natus eveniet perspiciatis esse sit. Ex cupiditate ullam excepturi, asperiores! Architecto ad deserunt impedit obcaecati delectus.<br />\r\nEnim illum deleniti rem fuga consequuntur voluptate, porro, assumenda, ipsa dolorum maxime cum minus perspiciatis impedit! Voluptas ratione facere quasi. Aspernatur itaque distinctio porro cumque cum exercitationem. Pariatur, id tempora?<br />\r\nAtque molestias quo, iure adipisci sequi cupiditate aliquam odio ad tenetur nesciunt error sapiente, ducimus, alias hic quam, rerum nostrum porro perspiciatis. Rem sit incidunt ratione fugiat assumenda, vero esse?<br />\r\nNobis delectus alias asperiores, vel possimus. Saepe accusantium doloribus officia quos! Laudantium necessitatibus deleniti sed ea! Beatae soluta aperiam vel fuga tempore recusandae, voluptate doloremque saepe laboriosam enim similique cum.<br />\r\nEos rem cum possimus molestias exercitationem. Eius, error recusandae voluptas, deleniti quas quia vero voluptate corrupti consequuntur cupiditate, quaerat totam expedita explicabo nobis! Numquam, facilis! Blanditiis ea aliquid repudiandae soluta!<br />\r\nEsse eligendi asperiores ducimus illo vero nobis. Placeat pariatur ipsa accusantium recusandae possimus sit, esse doloribus ea, vero voluptates, necessitatibus sapiente ullam. Obcaecati ex minus error ab nisi, quaerat eveniet.<br />\r\nArchitecto, voluptatum maiores consectetur fuga ea dicta non, beatae hic incidunt. Laborum voluptate eligendi, recusandae velit corporis nisi, debitis, hic ad aliquid fugit quidem molestias consequatur, nulla deleniti minima eaque!<br />\r\nLaudantium debitis adipisci mollitia perspiciatis ipsum voluptates repellendus voluptatem officia nulla! Quasi, quia rem ipsam tenetur corrupti, voluptate quam inventore impedit itaque minus deserunt ullam quisquam eius, omnis, suscipit atque.<br />\r\nMagni maxime aperiam rem ullam, explicabo sint dolor nisi nostrum aliquid! Autem vel mollitia dolores, deleniti illum dignissimos accusantium consectetur placeat provident eligendi sunt. Nemo fugiat accusamus blanditiis facilis officiis.<br />\r\nRepudiandae voluptatem porro dicta veritatis molestiae, dolorum id, cumque sequi aliquid ad. Delectus vero tempore ducimus eos nulla in aliquam reiciendis quos distinctio sapiente. Ullam sequi voluptatibus cupiditate enim autem.<br />\r\nQuae molestias facilis, ducimus necessitatibus officia sequi minus, eos consectetur eveniet provident tenetur, accusantium. Facere eos reiciendis ab quae vitae perspiciatis maiores? At quasi assumenda distinctio corrupti. Vero, eos soluta.<br />\r\nObcaecati nihil sunt et soluta perferendis commodi. Earum, voluptas quos animi architecto. Voluptate harum voluptatem odio a expedita accusamus consectetur quas, rem. Fuga vero voluptas perferendis adipisci ex, ab id.<br />\r\nDeserunt harum quibusdam aliquid dolorum asperiores suscipit neque recusandae omnis! Explicabo delectus illo sint exercitationem dolores ab sequi inventore quibusdam corrupti libero, magnam. Nihil sed distinctio optio nisi provident accusantium.<br />\r\nSit, ab commodi laudantium magni, quas inventore voluptates natus doloribus! Asperiores error nostrum, quisquam. Placeat ducimus iusto eius voluptatum illum, dolorem eveniet. Quia odit magni cum quae maiores fugit amet.<br />\r\nDolore deserunt commodi eius! Est quis, nihil accusamus qui quae consectetur. Incidunt culpa libero ad necessitatibus et laboriosam, iste ipsam officia, quod sit illum quo architecto aliquid, amet impedit blanditiis.<br />\r\nDolorum cupiditate quo veritatis deleniti ea tenetur quasi nostrum! Eum illo maxime earum architecto, perspiciatis, soluta. Tempore cum exercitationem ab explicabo obcaecati vitae, modi quis quos reprehenderit. Asperiores, ea voluptatum.<br />\r\nDistinctio saepe dolorum vitae voluptate voluptatem quis facere quas dolorem et cum nobis non debitis sed, rerum commodi quisquam laudantium minima. Quibusdam tempore aliquam ad suscipit minima qui delectus similique.<br />\r\nPlaceat rerum dicta tempore sequi perferendis maiores, perspiciatis molestias dolorum debitis iure et officia. Sunt sint iusto explicabo omnis reiciendis, incidunt molestiae, quis aperiam eaque dolore nihil obcaecati saepe molestias!</samp></p>\r\n\r\n<div style=\"background:#eeeeee; border:1px solid #cccccc; padding:5px 10px\"><samp>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit vel, consectetur illo a culpa non facere itaque tenetur explicabo impedit, harum, officia, rem? Vel odio nisi maxime vero aliquid aut?</samp><br />\r\n&nbsp;</div>\r\n\r\n<h3 style=\"color:#aaaaaa; font-style:italic\">&nbsp;</h3>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<iframe width=\"100%\" height=\"315\" src=\"https://www.youtube.com/embed/3kkOivH-ocA\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>\r\n\r\n\r\n', 1, 0, '', '2023-01-21 05:47:28', '2023-01-21 05:47:28', 11);
-
 -- --------------------------------------------------------
 
 --
@@ -68,11 +61,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`category_id`, `category_title`, `category_slug`, `category_text`, `category_created`, `category_updated`, `section_id`) VALUES
-(1, 'other', 'other', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse', '2023-01-21 04:40:13', '2023-01-21 04:46:31', 1),
-(8, 'cat 1', 'cat-1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,', '2023-01-21 04:53:38', '2023-01-21 04:53:38', 3),
-(9, 'cat 2', 'cat-2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,', '2023-01-21 04:53:43', '2023-01-21 04:53:43', 3),
-(10, 'cat 3', 'cat-3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,', '2023-01-21 04:53:47', '2023-01-21 04:53:47', 4),
-(11, 'cat 4', 'cat-4', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,', '2023-01-21 04:53:53', '2023-01-21 04:53:53', 4);
+(1, 'other', 'other', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse', '2023-01-21 04:40:13', '2023-01-21 04:46:31', 1);
 
 -- --------------------------------------------------------
 
@@ -1127,7 +1116,7 @@ INSERT INTO `guest` (`guest_id`, `guest_ip`, `guest_visit`, `guest_created`) VAL
 (918, '118.182.115.638', 1672172406, '2022-12-27 19:20:06'),
 (919, '393.704.863.547', 1672172406, '2022-12-27 19:20:06'),
 (920, '473.366.910.317', 1672172406, '2022-12-27 19:20:06'),
-(921, '127.0.0.1', 1674283648, '2022-12-29 17:09:18');
+(921, '127.0.0.1', 1674284426, '2022-12-29 17:09:18');
 
 -- --------------------------------------------------------
 
@@ -1268,9 +1257,7 @@ CREATE TABLE `section` (
 --
 
 INSERT INTO `section` (`section_id`, `section_title`, `section_slug`, `section_text`, `section_created`, `section_updated`) VALUES
-(1, 'other', 'other', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2023-01-21 04:39:43', '2023-01-21 04:39:43'),
-(3, 'sec 1', 'sec-1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,', '2023-01-21 04:53:15', '2023-01-21 04:53:15'),
-(4, 'sec 2', 'sec-2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,', '2023-01-21 04:53:22', '2023-01-21 04:53:22');
+(1, 'other', 'other', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2023-01-21 04:39:43', '2023-01-21 04:39:43');
 
 -- --------------------------------------------------------
 
@@ -1300,7 +1287,7 @@ INSERT INTO `setting` (`setting_id`, `setting_description`, `setting_key`, `sett
 (8, 'github', 'github', 'https://github.com/190101101', 'text', '2022-12-15 20:02:59'),
 (15, 'email address', 'email', '190101101@gmail.com', 'text', '2022-12-15 20:07:24'),
 (16, 'Copyright', 'copyright', 'Copyright © 2022', 'text', '2022-12-15 20:07:24'),
-(19, 'reminder title', 'reminder_title', 'Xatırlatma', 'text', '2022-12-15 20:07:24'),
+(19, 'reminder title', 'reminder_title', 'reminder', 'text', '2023-01-21 05:56:10'),
 (20, 'reminder', 'reminder', 'You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!', 'text', '2022-12-15 20:07:24');
 
 -- --------------------------------------------------------
