@@ -649,7 +649,22 @@ function langType($type)
         break;
 
         default:
-            return 'az';
+            return 'en';
         break;
     }
+}
+
+
+function csvToArray($csv)
+{
+    // create file handle to read CSV file
+    $csvToRead = fopen($csv, 'r');
+
+    // read CSV file using comma as delimiter
+    while (! feof($csvToRead)) {
+        $csvArray[] = fgetcsv($csvToRead, 1000, ',');
+    }
+
+    fclose($csvToRead);
+    return $csvArray;
 }

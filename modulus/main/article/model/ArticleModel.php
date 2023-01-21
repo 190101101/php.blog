@@ -80,13 +80,13 @@ class ArticleModel extends model
 
     public function articleSearchCount($value)
     {
-        return $this->db->t3count('article', 'category', 'section', "article.article_status=1 && category.category_status=1 && section.section_status=1 && article.article_slug LIKE ? ORDER BY article.article_id DESC", ["%{$value}%"])->count
+        return $this->db->t1count('article', "article.article_status=1 && article.article_slug LIKE ? ORDER BY article.article_id DESC", ["%{$value}%"])->count
         ?: $this->return->code(404)->return('not_found')->get()->http();
     }
 
     public function ArticleSearch($value, $start, $limit)
     {
-        return $this->db->t3where('article', 'category', 'section', "article.article_status=1 && category.category_status=1 && section.section_status=1 && article_slug LIKE ? 
+        return $this->db->t1where('article', "article.article_status=1 && article_slug LIKE ? 
             ORDER BY article.article_id DESC LIMIT {$start}, {$limit}", ["%{$value}%"], 2, 2);
     }
 

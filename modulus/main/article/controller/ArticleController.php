@@ -15,11 +15,6 @@ class ArticleController extends controller
         $this->page = new pagination();
     }
 
-    public function ArticleSearchEngine()
-    {
-        $this->article->ArticleSearchEngine();
-    }
-
     public function articleById($id)
     {
         $this->layout('main', 'main', 'article', 'read', [
@@ -36,6 +31,11 @@ class ArticleController extends controller
             'article' => $this->article->ByCategory($id, $p->start, $p->limit),
             'category' => $this->article->CategoryById($id),
         ]);
+    }
+
+    public function ArticleSearchEngine()
+    {
+        $this->article->ArticleSearchEngine();
     }
 
     public function ArticleSearch($value)

@@ -18,14 +18,14 @@
                 </span>
 
                 <span class="badge badge-info">
-                    <span> baxış: </span>
+                    <span> <?php echo content::view(); ?> </span>
                     <span><?php echo $article->article_view; ?></span>
                 </span>
 
                  <span>
                     <a class="badge badge-success" 
                         href="/article/category/<?php echo $article->category_id; ?>/page/1">
-                        <span>category: </span>
+                    <span> <?php echo content::category(); ?> </span>
                         <span><?php echo $article->category_id; ?></span>
                     </a>
                 </span>

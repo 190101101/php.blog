@@ -23,7 +23,7 @@
         </div>
     </ul>
     <?php endforeach; ?>
-
+<!-- 
     <ul class="list-group mt-3">
         <li class="list-group-item d-flex justify-content-between" data-toggle="collapse" data-target="#lang">
             <span><?php echo content::lang(); ?></span>
@@ -36,5 +36,7 @@
             <a href="/lang/4" class="list-group-item"><?php echo content::ru(); ?></a>
         </div>
     </ul>
+ -->
+    
 </div>
 

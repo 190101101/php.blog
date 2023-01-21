@@ -38,10 +38,6 @@
               <a class="dropdown-item <?php echo segment(2) != 'faq' ?: 'active'; ?>" href="/info/faq/page/1"><?php echo content::faq(); ?></a>
               <?php endif; ?>
 
-              <?php if(Setting::contact_page_status() == 1): ?>
-              <a class="dropdown-item <?php echo segment(1) != 'contact' ?: 'active'; ?>" href="/contact"><?php echo content::contact(); ?></a>
-              <?php endif; ?>
-
             </div>
           </li>
         </ul>

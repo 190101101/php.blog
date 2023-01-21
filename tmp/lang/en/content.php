@@ -10,7 +10,7 @@ return (object) [
     'pages_found' => 'found pages',
     'found' => 'found ',
     'found_data' => 'found datas',
-    'view' => 'viewed',
+    'view' => 'viewed:',
     'category_empty' => 'There are no publications in this category',
     'categories' => 'Categories',
     'by_category' => 'articles',
