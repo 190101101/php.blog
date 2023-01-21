@@ -149,9 +149,24 @@ class SectionModel extends model
         $this->return->code(200)->return('success')->get()->referer();
     }
 
+    public function SectionKey($id)
+    {
+        $section = $this->db->t1where('section', 'section_id=?', [$id]) ?:
+            $this->return->code(404)->return('not_found')->json();
+
+        $update = $this->db->update('section', [
+            'section_id' => $section->section_id,
+            'section_key' => $section->section_key == 1 ? 0 : 1,
+        ], ['id' => 'section_id']);
+
+        $update['status'] == TRUE
+            ? $this->return->code(200)->return('success')->json()
+            : $this->return->code(200)->return('error')->json();
+    }
+
     public function SectionDelete($id)
     {
-        $section = $this->db->t1where('section', 'section_id != 1 && section_id=?', [$id]) 
+        $section = $this->db->t1where('section', 'section_id != 1 && section_key != 1 && section_id=?', [$id]) 
             ?: $this->return->code(404)->return('not_found')->json();
 
         $section = $this->db->t1where('section', 'section_id=?', [
@@ -175,33 +190,11 @@ class SectionModel extends model
         $this->return->code(200)->return('success')->json();
     }
 
-    public function sectionDeletes($id)
-    {
-        $section = $this->db->t1where('section', 'section_id != 1 && section_id=?', [$id]) ?: 
-            $this->return->code(404)->return('not_found')->json();
-
-        $this->db->update('category', [
-            'section_id' => $section->section_id, 
-            'category.section_id' => 1, 
-        ], ['id' => 'section_id', 'p2' => 'section_id']); 
-        
-        $delete = $this->db->delete('section', [
-            'section_id' => $section->section_id
-        ], ['id' => 'section_id']);
-
-        $delete['status'] == TRUE ?:
-            $this->return->code(404)->return('error')->json();
-
-        unset($id); unset($delete); unset($section);
-
-        $this->return->code(200)->return('success')->json();
-    }
-
     public function sectionDestroy($id)
     {
         $http1 = 'panel/section/page/1';
         
-        $section = $this->db->t1where('section', 'section_id != 1 && section_id=?', [$id]) 
+        $section = $this->db->t1where('section', 'section_id != 1 && section_key != 1 && section_id=?', [$id]) 
             ?: $this->return->code(404)->return('not_found')->get()->http($http1);
 
         $section = $this->db->t1where('section', 'section_id=?', [

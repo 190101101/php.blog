@@ -81,9 +81,9 @@ class CategoryController extends controller
         $this->category->categoryDestroy($id);
     }
 
-    public function CategoryStatus($id)
+    public function CategoryKey($id)
     {
-        $this->category->CategoryStatus($id);
+        $this->category->CategoryKey($id);
     }
 
     public function categorySearchEngine()

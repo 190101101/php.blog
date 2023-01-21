@@ -68,9 +68,9 @@ class SectionController extends controller
         $this->section->sectionDestroy($id);
     }
     
-    public function SectionStatus($id)
+    public function SectionKey($id)
     {
-        $this->section->SectionStatus($id);
+        $this->section->SectionKey($id);
     }
 
     public function sectionSearchEngine()

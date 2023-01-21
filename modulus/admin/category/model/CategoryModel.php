@@ -176,9 +176,24 @@ class CategoryModel extends model
         $this->return->code(200)->return('success')->get()->referer();
     }
 
+    public function CategoryKey($id)
+    {
+        $category = $this->db->t1where('category', 'category_id=?', [$id]) ?:
+            $this->return->code(404)->return('not_found')->json();
+
+        $update = $this->db->update('category', [
+            'category_id' => $category->category_id,
+            'category_key' => $category->category_key == 1 ? 0 : 1,
+        ], ['id' => 'category_id']);
+
+        $update['status'] == TRUE
+            ? $this->return->code(200)->return('success')->json()
+            : $this->return->code(200)->return('error')->json();
+    }
+
     public function categoryDelete($id)
     {
-        $category = $this->db->t1where('category', 'category_id != 1 && category_id=?', [$id]) 
+        $category = $this->db->t1where('category', 'category_id != 1 && category_key != 1 && category_id=?', [$id]) 
             ?: $this->return->code(404)->return('not_found')->json();
 
         $section = $this->db->t1where('section', 'section_id=?', [
@@ -206,7 +221,7 @@ class CategoryModel extends model
     {
         $http1 = 'panel/category/page/1';
         
-        $category = $this->db->t1where('category', 'category_id != 1 && category_id=?', [$id]) 
+        $category = $this->db->t1where('category', 'category_id != 1 && category_key != 1 && category_id=?', [$id]) 
             ?: $this->return->code(404)->return('not_found')->get()->http($http1);
 
         $section = $this->db->t1where('section', 'section_id=?', [

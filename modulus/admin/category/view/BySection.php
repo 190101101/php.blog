@@ -16,6 +16,7 @@
                     <th>title</th>
                     <th>section</th>
                     <th>created</th>
+                    <th>key</th>
                     <th>show</th>
                     <th>update</th>
                     <th>delete</th>
@@ -27,6 +28,7 @@
                     <td>title</td>
                     <td>section</td>
                     <td>created</td>
+                    <td>key</td>
                     <td>show</td>
                     <td>update</td>
                     <td>delete</td>
@@ -42,6 +44,14 @@
                         </a>
                     </td>
                     <td>#<?php echo $category->section_title; ?></td>
+                    <td aria-label="key">
+                        <label class="switch">
+                        <input type="checkbox" class="data-get" 
+                            data-get="/panel/category/key/<?php echo $category->category_id; ?>" 
+                            <?php echo $category->category_key == 1 ? 'checked' : NULL; ?> > 
+                        <span class="slider round"></span>
+                        </label>
+                    </td>
                     <td><?php echo date_ymd($category->category_created); ?></td>
                     <td><a class="btn btn-sm btn-success"
                         href="/panel/category/show/<?php echo $category->category_id; ?>">show</a></td>

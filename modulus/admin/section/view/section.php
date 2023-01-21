@@ -15,6 +15,7 @@
                     <th>id</th>
                     <th>title</th>
                     <th>created</th>
+                    <th>key</th>
                     <th>show</th>
                     <th>update</th>
                     <th>delete</th>
@@ -25,6 +26,7 @@
                     <td>id</td>
                     <td>title</td>
                     <td>created</td>
+                    <td>key</td>
                     <td>show</td>
                     <td>update</td>
                     <td>delete</td>
@@ -40,6 +42,14 @@
                         </a>
                     </td>
                     <td><?php echo date_ymd($section->section_created); ?></td>
+                    <td aria-label="key">
+                        <label class="switch">
+                        <input type="checkbox" class="data-get" 
+                            data-get="/panel/section/key/<?php echo $section->section_id; ?>" 
+                            <?php echo $section->section_key == 1 ? 'checked' : NULL; ?> > 
+                        <span class="slider round"></span>
+                        </label>
+                    </td>
                     <td><a class="btn btn-sm btn-success"
                         href="/panel/section/show/<?php echo $section->section_id; ?>">show</a></td>
                     <td><a class="btn btn-sm btn-warning"

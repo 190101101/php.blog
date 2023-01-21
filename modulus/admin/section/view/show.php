@@ -7,7 +7,6 @@
                 <span>show</span>
             </div>
             <div class="col-md-2">
-                <a class="btn btn-sm btn-danger" href="/panel/section/destroy/<?php echo $section->section_id; ?>">delete</a>
                 <a class="btn btn-sm btn-success" href="/panel/section/page/1">back</a>
             </div>
         </div>
@@ -37,6 +36,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <div class="d-flex justify-content-between">
+            <a class="btn btn-sm btn-danger" href="/panel/section/destroy/<?php echo $section->section_id; ?>">delete</a>
         </div>
     </div>
 </div>
