@@ -64,7 +64,6 @@
             </div>
 
             <input name="article_id" type="hidden" value="<?php echo $article->article_id; ?>"  required readonly>
-            <input name="old_category_id" type="hidden" value="<?php echo $article->category_id; ?>"  required readonly>
         </div>
     </div>
 </form>
