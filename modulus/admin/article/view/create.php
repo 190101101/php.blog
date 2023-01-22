@@ -16,13 +16,18 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label>title</label>
-                    <input name="article_title" class="form-control" type="text" minlength="3" maxlength="100" placeholder="title" required>
+                    <input name="article_title" class="form-control" type="text" minlength="3" maxlength="100" 
+                        <?php if(old::article_title()): ?>
+                        value="<?php echo old::article_title(); ?>" 
+                        <?php else: ?>
+                        placeholder="article title" 
+                        <?php endif; ?>>
                 </div>
             </div>
 
             <div class="col-md-12">
                 <label>article text</label>
-                <textarea name="article_text" rows="5" minlength="10" maxlength="30000" type="text" class="form-control" placeholder="article text" required id="editor1"></textarea>
+                <textarea name="article_text" rows="5"  maxlength="60000" type="text" class="form-control" placeholder="article text" id="editor1"><?php if(old::article_title()): echo old::article_title(); endif; ?></textarea>
                 <script>CKEDITOR.replace('editor1')</script>
             </div>
 

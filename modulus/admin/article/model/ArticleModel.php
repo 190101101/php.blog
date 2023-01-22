@@ -95,7 +95,7 @@ class ArticleModel extends model
         $v->rule('lengthMin', 'article_text', 10);
 
         $v->rule('lengthMax', 'article_title', 100);
-        $v->rule('lengthMax', 'article_text', 30000);
+        $v->rule('lengthMax', 'article_text', 60000);
 
         error::valitron($v, $http1);
 
@@ -159,7 +159,7 @@ class ArticleModel extends model
         $v->rule('lengthMin', 'article_text', 10);
 
         $v->rule('lengthMax', 'article_title', 100);
-        $v->rule('lengthMax', 'article_text', 30000);
+        $v->rule('lengthMax', 'article_text', 60000);
 
         error::valitron($v, $http1);
 
@@ -185,7 +185,7 @@ class ArticleModel extends model
             $this->return->code(404)->return('error')->get()->referer();
         
         old::delete($data);
-        
+
         #unset variables
         unset($http1); unset($data); unset($_POST); unset($v); unset($form);
 

@@ -62,11 +62,9 @@ class message extends Singleton
         $this->message = $message2 . lang::read($message);
         return $this;
 
-        /*
-        $return =  require '../tmp/lang/az/response.php';
-        $this->message = $message2 . $return->$message;
-        return $this;
-        */
+        // $return =  require '../tmp/lang/en/response.php';
+        // $this->message = $return->$message;
+        // return $this;
     }
 
     public function response($message)

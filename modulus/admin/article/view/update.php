@@ -37,7 +37,7 @@
 
             <div class="col-lg-12">
                 <label>article text</label>
-                <textarea name="article_text" rows="5" minlength="100" maxlength="30000" type="text" class="form-control" placeholder="article text" required id="editor1"><?php echo $article->article_text; ?></textarea>
+                <textarea name="article_text" rows="5" minlength="100" maxlength="60000" type="text" class="form-control" placeholder="article text" required id="editor1"><?php echo $article->article_text; ?></textarea>
                 <script>CKEDITOR.replace('editor1',{
 
                 })</script>
