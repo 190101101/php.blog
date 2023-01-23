@@ -8,9 +8,10 @@ use Article;
 
 class ArticleModel extends model
 {
-    public function keyword()
+    public function keyword($article)
     {
-        return $this->db->t1where('article', 'category_id != 1 ORDER BY article_view DESC LIMIT 144', [], 2);
+        return $this->db->t1where('article', 'category_id != 1 && category_id=? 
+            ORDER BY article_view DESC LIMIT 144', [$article->category_id], 2);
     }    
 
     public function articleById($id)
@@ -28,9 +29,8 @@ class ArticleModel extends model
 
     public function ArticleSimilar()
     {
-        return $this->db->t1where('article', "article.article_status=1 && article.category_id != 1
-            ORDER BY article.article_view ASC LIMIT 6", [
-        ], 2);
+        return $this->db->t1where('article', "article_status=1 && category_id != 1
+            ORDER BY article.article_view ASC LIMIT 6", [], 2);
     }
 
     #

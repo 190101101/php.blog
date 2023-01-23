@@ -48,12 +48,11 @@
                             <?php echo $article->article_id; ?>        
                         </a>
                     </td>
-                    <!-- esma-ul-husna -->
-                    <td aria-label="title"><?php echo substr(char_map($article->article_title), 0, 20); ?></td>
+                    <td aria-label="title"><?php echo substr($article->article_title, 0, 20); ?></td>
                     <td aria-label="category">
                         <a href="/panel/article/category/<?php echo $article->section_slug; ?>/<?php echo $article->category_slug; ?>/page/1"
                             title="#id: <?php echo $article->category_id; ?>">
-                            #<?php echo substr(char_map(remove_tags($article->category_title)), 0, 10); ?>        
+                            #<?php echo substr(remove_tags($article->category_title), 0, 10); ?>        
                         </a>
                     </td>
                     <td aria-label="text"><?php echo substr(remove_tags($article->article_text), 0, 10); ?></td>

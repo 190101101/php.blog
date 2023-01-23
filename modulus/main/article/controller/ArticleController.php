@@ -18,9 +18,9 @@ class ArticleController extends controller
     public function articleById($id)
     {
         $this->layout('main', 'main', 'article', 'article', [
-            'article' => $this->article->articleById($id),
+            'article' => $article = $this->article->articleById($id),
             'similar' => $this->article->ArticleSimilar(),
-            'keyword' => $this->article->keyword(),
+            'keyword' => $this->article->keyword($article),
         ]);
     }
 
