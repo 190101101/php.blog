@@ -77,7 +77,7 @@ class ArticleModel extends model
         $v->rule('required', 'field_key');
         $v->rule('required', 'field_value');
 
-        $v->rule('lengthMin', 'field_value', 3);
+        $v->rule('lengthMin', 'field_value', 2);
         $v->rule('lengthMin', 'field_key', 3);
 
         $v->rule('lengthMax', 'field_value', 20);
@@ -93,13 +93,13 @@ class ArticleModel extends model
 
     public function articleSearchCount($value)
     {
-        return $this->db->t1count('article', "article.article_status=1 && article.article_slug LIKE ? ORDER BY article.article_id DESC", ["%{$value}%"])->count
+        return $this->db->t1count('article', "article.article_status=1 && article.article_keyword LIKE ? ORDER BY article.article_id DESC", ["%{$value}%"])->count
         ?: $this->return->code(404)->return('not_found')->get()->http();
     }
 
     public function ArticleSearch($value, $start, $limit)
     {
-        return $this->db->t1where('article', "article.article_status=1 && article_slug LIKE ? 
+        return $this->db->t1where('article', "article.article_status=1 && article_keyword LIKE ? 
             ORDER BY article.article_id DESC LIMIT {$start}, {$limit}", ["%{$value}%"], 2, 2);
     }
 

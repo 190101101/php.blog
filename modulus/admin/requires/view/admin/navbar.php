@@ -14,7 +14,7 @@
                 <?php endforeach; ?>
             </select>
             <input class="form-control" type="text" name="field_value" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
         </div>
     </form>
     <?php else: ?>

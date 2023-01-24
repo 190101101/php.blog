@@ -72,6 +72,7 @@ class ArticleModel extends model
             'article_title',
             'article_text',
             'category_id',
+            'article_keyword',
         ];
 
         #array diff keys
@@ -80,9 +81,26 @@ class ArticleModel extends model
 
         #peel tags of array
         $article_text = $_POST['article_text'];
-        $data = peel_tag_array(except($_POST, ['article_text']));
+        $article_keywords = $_POST['article_keyword'];
+
+        $data = peel_tag_array(except($_POST, ['article_text', 'article_keyword']));
         $data += ['article_text' => $article_text];
         old::create($data);
+
+        #
+        $data['article_keyword'] = implode(' ', array_map(function($item){
+            return '#'.seo(char_map(strtolower(remove_tags($item))));
+        }, array_values($article_keywords)));
+
+        $keywords = explode(' ', $data['article_keyword']);
+
+        foreach($keywords as $keyword){
+            $this->db->t1where('keyword', 'keyword_name=?', [$keyword])
+            ?:
+            $this->db->create('keyword', [
+                'keyword_name' => $keyword
+            ]);
+        }
 
         #check via valitron
         $v = new v($data);
@@ -92,27 +110,18 @@ class ArticleModel extends model
         $v->rule('required', 'category_id');
 
         $v->rule('lengthMin', 'article_title', 3);
+        $v->rule('lengthMin', 'article_keyword', 2);
         $v->rule('lengthMin', 'article_text', 10);
 
         $v->rule('lengthMax', 'article_title', 100);
+        $v->rule('lengthMax', 'article_keyword', 100);
         $v->rule('lengthMax', 'article_text', 60000);
 
         error::valitron($v, $http1);
 
-        #if not found article
-        $data += ['article_slug' => seo(char_map($data['article_title']))];
-
-       !$this->db->t1where('article', 'article_slug=?', [$data['article_slug']])
-            ?: $this->return->code(404)->return('already_have')->get()->referer();
-
         $category = $this->db->t1where('category', 'category_id=?', [
             $data['category_id']
         ]) ?: $this->return->code(404)->return('not_found', 'category')->get()->referer();
-
-        $update = $this->db->update('category', [
-            'category_id' => $category->category_id,
-            'category_count' => $category->category_count += 1
-        ], ['id' => 'category_id']);
 
         $create = $this->db->create('article', $data);
 
@@ -131,6 +140,7 @@ class ArticleModel extends model
     {
         $form = [
             'article_title',
+            'article_keyword',
             'article_text',
             'article_view',
             'category_id',
@@ -142,43 +152,54 @@ class ArticleModel extends model
 
         #peel tags of array
         $article_text = $_POST['article_text'];
-        $data = peel_tag_array(except($_POST, ['article_text']));
+        $article_keywords = $_POST['article_keyword'];
+
+        $data = peel_tag_array(except($_POST, ['article_text', 'article_keyword']));
         $data += ['article_text' => $article_text];
         old::create($data);
+
+        $data['article_keyword'] = implode(' ', array_map(function($item){
+            return '#'.seo(char_map(strtolower(remove_tags($item))));
+        }, array_values($article_keywords)));
+
+        $keywords = explode(' ', $data['article_keyword']);
+
+        foreach($keywords as $keyword){
+            $this->db->t1where('keyword', 'keyword_name=?', [$keyword])
+            ?:
+            $this->db->create('keyword', [
+                'keyword_name' => $keyword
+            ]);
+        }
 
         #check via valitron
         $http1 = "panel/article/update/{$data['article_id']}";
         $v = new v($data);
 
         $v->rule('required', 'article_title');
+        $v->rule('required', 'article_keyword');
         $v->rule('required', 'article_text');
         $v->rule('required', 'article_view');
         $v->rule('required', 'category_id');
 
         $v->rule('lengthMin', 'article_title', 3);
+        $v->rule('lengthMin', 'article_keyword', 2);
         $v->rule('lengthMin', 'article_text', 10);
 
         $v->rule('lengthMax', 'article_title', 100);
+        $v->rule('lengthMax', 'article_keyword', 100);
         $v->rule('lengthMax', 'article_text', 60000);
 
         error::valitron($v, $http1);
-
-        $data += ['article_slug' => seo(char_map($data['article_title']))];
-
-        unset($data['article_draft']);
-
-        #
-        !$this->db->t1where('article', 'article_slug = ? && article_id != ?', [
-            $data['article_slug'], $data['article_id'],
-        ]) ?: $this->return->code(404)->return('already_have')->get()->referer();
 
         #
         $article = $this->db->t1where('article', 'article_id = ?', [
             $data['article_id'],
         ]) ?: $this->return->code(404)->return('not_found', 'article')->get()->referer();
 
-        #if not found article
         $data += ['article_updated' => date('Y-m-d H:i:s')];
+
+        #
         $update = $this->db->update('article', $data, ['id' => 'article_id']);
 
         $update['status'] == TRUE ?:

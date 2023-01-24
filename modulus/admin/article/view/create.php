@@ -25,6 +25,42 @@
                 </div>
             </div>
 
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>keyword</label>
+                    <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" maxlength="100" 
+                        <?php if(old::article_keyword()): ?>
+                        value="<?php echo old::article_keyword(); ?>" 
+                        <?php else: ?>
+                        placeholder="article_keyword" 
+                        <?php endif; ?>>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>keyword</label>
+                    <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" maxlength="100" 
+                        <?php if(old::article_keyword()): ?>
+                        value="<?php echo old::article_keyword(); ?>" 
+                        <?php else: ?>
+                        placeholder="article_keyword" 
+                        <?php endif; ?>>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>keyword</label>
+                    <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" maxlength="100" 
+                        <?php if(old::article_keyword()): ?>
+                        value="<?php echo old::article_keyword(); ?>" 
+                        <?php else: ?>
+                        placeholder="article_keyword" 
+                        <?php endif; ?>>
+                </div>
+            </div>
+
             <div class="col-md-12">
                 <label>article text</label>
                 <textarea name="article_text" rows="5"  maxlength="60000" type="text" class="form-control" placeholder="article text" id="editor1"><?php if(old::article_title()): echo old::article_title(); endif; ?></textarea>

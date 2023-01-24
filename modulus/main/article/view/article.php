@@ -1,5 +1,7 @@
 <?php $article = $data->article; ?>
-<h3 class="mt-4 mb-3">#<?php echo $article->article_title; ?></h3>
+
+<h2 class="text-success mt-4"><?php echo $article->article_keyword; ?></h2>
+<h3 class="mb-3"><?php echo $article->article_title; ?></h3>
 
 <?php breadcump();  ?>
 

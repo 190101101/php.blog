@@ -35,6 +35,32 @@
                 </div>
             </div>
 
+            <?php $keyword = explode(' ', $article->article_keyword); ?>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>keyword</label>
+                    <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" 
+                    maxlength="100" value="<?php echo $keyword[0]; ?>">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>keyword</label>
+                    <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" 
+                    maxlength="100" value="<?php echo $keyword[1]; ?>">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>keyword</label>
+                    <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" 
+                    maxlength="100" value="<?php echo $keyword[2]; ?>">
+                </div>
+            </div>
+
             <div class="col-lg-12">
                 <label>article text</label>
                 <textarea name="article_text" rows="5" minlength="100" maxlength="60000" type="text" class="form-control" placeholder="article text" required id="editor1"><?php echo $article->article_text; ?></textarea>

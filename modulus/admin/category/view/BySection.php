@@ -15,8 +15,8 @@
                     <th>id</th>
                     <th>title</th>
                     <th>section</th>
-                    <th>created</th>
                     <th>key</th>
+                    <th>created</th>
                     <th>show</th>
                     <th>update</th>
                     <th>delete</th>
@@ -27,8 +27,8 @@
                     <td>id</td>
                     <td>title</td>
                     <td>section</td>
-                    <td>created</td>
                     <td>key</td>
+                    <td>created</td>
                     <td>show</td>
                     <td>update</td>
                     <td>delete</td>
