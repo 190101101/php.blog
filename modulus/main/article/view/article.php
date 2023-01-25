@@ -47,9 +47,9 @@
 
             <div class="my-3">
                 <?php foreach($data->keyword as $keyword): ?>
-                    <a href="/article/search/data/<?php echo substr($keyword->article_slug, 0, 5); ?>/page/1" 
+                    <a href="/article/search/data/<?php echo substr($keyword->keyword_name, 1); ?>/page/1" 
                         class="text-secondary ml-1">
-                        #<?php echo substr($keyword->article_title,0,5); ?>
+                        <?php echo $keyword->keyword_name; ?>
                     </a>
                 <?php endforeach; ?>
             </div>

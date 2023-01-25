@@ -8,10 +8,10 @@ use Article;
 
 class ArticleModel extends model
 {
-    public function keyword($article)
+    public function keyword()
     {
-        return $this->db->t1where('article', 'category_id != 1 && category_id=? 
-            ORDER BY article_view DESC LIMIT 144', [$article->category_id], 2);
+        return $this->db->t1where('keyword', 'keyword_id > 0 
+            ORDER BY keyword_id DESC LIMIT 144', [], 2);
     }    
 
     public function articleById($id)
