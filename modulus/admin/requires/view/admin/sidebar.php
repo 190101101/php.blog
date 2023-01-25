@@ -31,8 +31,10 @@
                         <a class="nav-link" href="/panel/article/page/1">article</a>
                     </nav>
                 </div>
+
                 <!--  -->
                 <div class="sb-sidenav-menu-heading">addons</div>
+                
                 <a class="nav-link" href="/">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Home

@@ -87,18 +87,25 @@ class ArticleModel extends model
         $data += ['article_text' => $article_text];
         old::create($data);
 
-        #
+        $keywords = [];
+
+        for($i = 0; $i < count($article_keywords); $i++){
+            if(!empty($article_keywords[$i]) || strlen($article_keywords[$i]) > 20){
+                $keywords[] = $article_keywords[$i];
+            } continue;
+        }
+
         $data['article_keyword'] = implode(' ', array_map(function($item){
             return '#'.seo(char_map(strtolower(remove_tags($item))));
-        }, array_values($article_keywords)));
+        }, array_values($keywords)));
 
-        $keywords = explode(' ', $data['article_keyword']);
+        $keyword = explode(' ', $data['article_keyword']);
 
-        foreach($keywords as $keyword){
-            $this->db->t1where('keyword', 'keyword_name=?', [$keyword])
+        foreach($keyword as $key){
+            $this->db->t1where('keyword', 'keyword_name=?', [$key])
             ?:
             $this->db->create('keyword', [
-                'keyword_name' => $keyword
+                'keyword_name' => $key
             ]);
         }
 
@@ -118,6 +125,8 @@ class ArticleModel extends model
         $v->rule('lengthMax', 'article_text', 60000);
 
         error::valitron($v, $http1);
+
+        $data += ['article_slug' => seo(char_map($data['article_title']))];
 
         $category = $this->db->t1where('category', 'category_id=?', [
             $data['category_id']
@@ -158,17 +167,25 @@ class ArticleModel extends model
         $data += ['article_text' => $article_text];
         old::create($data);
 
+        $keywords = [];
+
+        for($i = 0; $i < count($article_keywords); $i++){
+            if(!empty($article_keywords[$i]) || strlen($article_keywords[$i]) > 20){
+                $keywords[] = $article_keywords[$i];
+            } continue;
+        }
+
         $data['article_keyword'] = implode(' ', array_map(function($item){
             return '#'.seo(char_map(strtolower(remove_tags($item))));
-        }, array_values($article_keywords)));
+        }, array_values($keywords)));
 
-        $keywords = explode(' ', $data['article_keyword']);
+        $keyword = explode(' ', $data['article_keyword']);
 
-        foreach($keywords as $keyword){
-            $this->db->t1where('keyword', 'keyword_name=?', [$keyword])
+        foreach($keyword as $key){
+            $this->db->t1where('keyword', 'keyword_name=?', [$key])
             ?:
             $this->db->create('keyword', [
-                'keyword_name' => $keyword
+                'keyword_name' => $key
             ]);
         }
 
@@ -192,6 +209,8 @@ class ArticleModel extends model
 
         error::valitron($v, $http1);
 
+        $data += ['article_slug' => seo(char_map($data['article_title']))];
+        
         #
         $article = $this->db->t1where('article', 'article_id = ?', [
             $data['article_id'],
@@ -308,13 +327,17 @@ class ArticleModel extends model
         $v->rule('lengthMin', 'field_value', 1);
         $v->rule('lengthMin', 'field_key', 2);
 
-        $v->rule('lengthMax', 'field_value', 20);
+        $v->rule('lengthMax', 'field_value', 100);
         $v->rule('lengthMax', 'field_key', 100);
 
         $v->rule('equals', 'page', 'page_key');
 
-        error::valitron($v, $http2);        
-        
+        error::valitron($v, $http2);
+
+        if($data['field_key'] == 'article_slug'){
+            $data['field_value'] = seo($data['field_value']);
+        }
+
         $this->return->http("{$http1}{$data['field_key']}/{$data['field_value']}/page/1");
     }
 

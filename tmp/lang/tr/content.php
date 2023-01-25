@@ -2,10 +2,10 @@
 
 return (object) [
     'lang' => 'dil',
-    'az' => 'Azərbaycan dili',
-    'en' => 'English',
-    'ru' => 'русский язык',
-    'tr' => 'türk dili',
+    'az' => 'az',
+    'en' => 'en',
+    'ru' => 'ру',
+    'tr' => 'tr',
     'choose' => 'dil seçin',
     'pages_found' => 'bulunan sayfalar',
     'found' => 'bulundu',
@@ -19,7 +19,7 @@ return (object) [
     'back' => 'geri',
     'home' => 'ana sayfa',
     'page_404' => 'Aradığınız sayfa bulunamadı. Tekrar yolunuza devam etmenizi sağlayacak bazı yararlı bağlantılar:',
-    'other_pages'=> 'Diğer Sayfalar',
+    'other_pages'=> 'diğer',
     'login_page_title' => 'giriş yap / kaydol',
     'male' => 'erkek',
     'female' => 'dişi',

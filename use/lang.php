@@ -15,5 +15,11 @@ class lang extends Singleton
 		$type = langType(cookie::read('lang'));
         $return = require "../tmp/lang/{$type}/response.php";
         return $return->$arg;
-	}	
+	}
+
+	public static function dict($arg)
+	{
+		$type = langType(cookie::read('lang'));
+		return $arg.'_'.$type;
+	}
 }

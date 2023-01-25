@@ -15,7 +15,7 @@
                     <th>id</th>
                     <th>title</th>
                     <th>category</th>
-                    <th>text</th>
+                    <th>keyword</th>
                     <th>created</th>
                     <th>status</th>
                     <th>show</th>
@@ -28,7 +28,7 @@
                     <td>id</td>
                     <td>title</td>
                     <td>category</td>
-                    <td>text</td>
+                    <td>keyword</td>
                     <td>created</td>
                     <td>status</td>
                     <td>show</td>
@@ -48,7 +48,7 @@
                     </td>
                     <td aria-label="title"><?php echo substr($article->article_title, 0, 20); ?></td>
                     <td aria-label="category">#<?php echo substr(char_map($article->category_title), 0, 10); ?></td>
-                    <td aria-label="text"><?php echo substr($article->article_text, 0, 10); ?></td>
+                    <td aria-label="text"><?php echo substr($article->article_keyword, 0, 10); ?></td>
                     <td><?php echo date_ymd($article->article_created); ?></td>
                     <td aria-label="status">
                         <label class="switch">

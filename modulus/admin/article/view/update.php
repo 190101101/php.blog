@@ -37,29 +37,44 @@
 
             <?php $keyword = explode(' ', $article->article_keyword); ?>
 
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label>keyword</label>
-                    <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" 
-                    maxlength="100" value="<?php echo $keyword[0]; ?>">
-                </div>
-            </div>
+            <?php for($i = 0; $i < count($keyword); $i++): ?>
 
             <div class="col-md-4">
                 <div class="form-group">
                     <label>keyword</label>
                     <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" 
-                    maxlength="100" value="<?php echo $keyword[1]; ?>">
+                    maxlength="100" value="<?php echo $keyword[$i]; ?>">
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label>keyword</label>
-                    <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" 
-                    maxlength="100" value="<?php echo $keyword[2]; ?>">
+            <?php endfor; ?>
+
+            <?php if(count($keyword) == 1): ?>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>keyword</label>
+                        <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" 
+                        maxlength="100" placeholder="#keyword">
+                    </div>
                 </div>
-            </div>
+                
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>keyword</label>
+                        <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" 
+                        maxlength="100" placeholder="#keyword">
+                    </div>
+                </div>
+
+            <?php elseif(count($keyword) == 2): ?>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>keyword</label>
+                        <input name="article_keyword[]" multiple class="form-control" type="text" minlength="2" 
+                        maxlength="100" placeholder="#keyword">
+                    </div>
+                </div>
+            <?php endif; ?>
 
             <div class="col-lg-12">
                 <label>article text</label>
@@ -102,3 +117,5 @@
         </div>
     </div>
 </form>
+
+

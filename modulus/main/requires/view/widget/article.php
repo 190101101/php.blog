@@ -4,7 +4,7 @@
         <a href="/article/id/<?php echo $article->article_id; ?>" class="card h-100">
             <div class="card-body" title=" #id: <?php echo $article->article_id; ?>">
                 <h6 class="text-center">
-                    #<?php echo $article->article_title; ?>
+                    <?php echo substr($article->article_title,0,19); ?>
                 </h6>
                 <p class="card-text"><?php echo strip_tags(substr($article->article_text, 0, 100)); ?>...</p>
                 <small><?php echo date_ymd($article->article_created); ?></small>

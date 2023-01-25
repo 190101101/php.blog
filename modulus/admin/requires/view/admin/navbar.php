@@ -8,7 +8,9 @@
     <form action="/panel/<?php echo segment(2); ?>/search/key/value" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
         <div class="input-group">
             <select class="form-control form-control-sm mr-1" name="field_key">
-                <?php foreach(db()->columns(segment(2)) as $key): ?>
+                <?php $column = db()->columns(segment(2)); ?>
+                <?php $except = except($column, [1]); ?>
+                <?php foreach($except as $key): ?>
                 <?php $keys = explode('_', $key); ?>
                     <option value="<?php echo $key; ?>"><?php echo $keys[1]; ?></option>
                 <?php endforeach; ?>
@@ -26,7 +28,7 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <?php if(segment(2) == 'admin'): ?>
-                <li><a class="dropdown-item" href="/panel/user/update/<?php echo User::user_id(); ?>">profile update</a></li>
+                <li><a class="dropdown-item" href="/panel/user/update/<?php echo User::user_id(); ?>">update</a></li>
                 <?php endif; ?>
                 <?php if(segment(2) != 'admin' && segment(2) != 'user' && segment(2) != 'setting' ): ?>
                 <li><a class="dropdown-item" href="/panel/<?php echo segment(2); ?>/create">create</a></li>
@@ -35,3 +37,4 @@
         </li>
     </ul>
 </nav>
+

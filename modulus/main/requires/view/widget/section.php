@@ -23,21 +23,5 @@
         </div>
     </ul>
     <?php endforeach; ?>
-
-<!-- 
-    <ul class="list-group mt-3">
-        <li class="list-group-item d-flex justify-content-between" data-toggle="collapse" data-target="#lang">
-            <span><?php echo content::lang(); ?></span>
-            <span class="badge badge-warning"><?php echo content::choose(); ?></span>
-        </li>
-        <div id="lang" class="collapse" aria-labelledby="headingone" data-parent="#category">
-            <a href="/lang/1" class="list-group-item"><?php echo content::az(); ?></a>
-            <a href="/lang/2" class="list-group-item"><?php echo content::tr(); ?></a>
-            <a href="/lang/3" class="list-group-item"><?php echo content::en(); ?></a>
-            <a href="/lang/4" class="list-group-item"><?php echo content::ru(); ?></a>
-        </div>
-    </ul>
- -->
-    
 </div>
 

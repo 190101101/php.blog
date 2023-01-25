@@ -254,6 +254,10 @@ class SectionModel extends model
 
         error::valitron($v, $http2);        
 
+        if($data['field_key'] == 'section_slug'){
+            $data['field_value'] = seo($data['field_value']);
+        }
+
         $this->return->http("{$http1}{$data['field_key']}/{$data['field_value']}/page/1");
     }
 

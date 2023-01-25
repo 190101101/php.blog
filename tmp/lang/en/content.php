@@ -1,11 +1,11 @@
 <?php 
 
 return (object) [
-    'lang' => 'language',
-    'az' => 'Azərbaycan dili',
-    'en' => 'English',
-    'ru' => 'русский язык',
-    'tr' => 'türk dili',
+    'lang' => 'lang',
+    'az' => 'az',
+    'en' => 'en',
+    'ru' => 'ру',
+    'tr' => 'tr',
     'choose' => 'choose',
     'pages_found' => 'found pages',
     'found' => 'found ',

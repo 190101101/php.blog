@@ -10,6 +10,7 @@ use core\app;
 app::get('/', '/home/index', 'main');
 app::get('/home/page/([0-9]+)', '/home/index', 'main');
 app::get('/mode/([0-9]+)', '/home/mode/([0-9]+)', 'main');
+// app::get('/lang/([0-9a-zA-Z-_]+)', '/home/lang/([0-9a-zA-Z-_]+)', 'main');
 
 /*article*/
 app::get('/article/page/([0-9]+)', '/article/article', 'main');
